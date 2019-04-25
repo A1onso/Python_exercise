@@ -1,0 +1,69 @@
+a = [1, 2, 3]
+b = [4, 6, 7]
+'''
+做向量的乘法的两种写法
+
+'''
+
+
+def vector_dot(a, b):
+    prod = 0
+    for i in range(len(a)):
+        prod += a[i] * b[i]
+    # print(prod)                     # 在定义的函数里面填加print输出或者在运行函数时进行输出  eg：print(vector_dot(a,b))
+    return prod
+
+
+vector_dot(a, b)
+
+
+# def mul(v1, v2):
+#     enter = v1[0] * v2[0]
+#     for i in range(1, len(a)):
+#         enter += v1[1] * v2[1]
+#     print(enter)
+#     return enter
+#
+#
+# mul(a, b)
+
+
+def matrix_mul(a, b):
+    mat = []
+
+    for i in range(len(a)):
+        mat.append([])
+        for j in range(len(b[0])):
+            r1 = get_row(a, i)
+            c1 = get_col(b, j)
+            num = vector_dot(r1, c1)
+            mat[i].append(num)
+    return mat
+
+
+def get_row(m, i):
+    return m[i]
+
+
+def get_col(m, i):
+    col = []
+    for row in m:
+        for j in range(len(row)):
+            # if j == i:
+            #     col.append(row[j])
+            col.append(row[i])
+        return col
+
+
+r = matrix_mul(
+    [
+        [1, 2],
+        [4, 5],
+    ],
+    [
+        [-1, -2, 1],
+        [-3, -4, 99],
+        [-5, -6, 7],
+    ]
+)
+print(r)
