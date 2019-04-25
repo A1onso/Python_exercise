@@ -1,0 +1,22 @@
+a = [1, 2, 7]
+b = [4, 6, 3]
+
+
+def vector_dot(v1, v2):
+    prod = 0
+    for i in range(len(v1)):
+        prod += v1[i] * v2[i]
+    return prod
+
+
+print(vector_dot(a, b))
+
+
+def dot(x, y):
+    start = x[0] * y[0]
+    for i in range(1, len(x)):
+        start += x[i] * y[i]
+    return start
+
+
+print(dot(a, b))
